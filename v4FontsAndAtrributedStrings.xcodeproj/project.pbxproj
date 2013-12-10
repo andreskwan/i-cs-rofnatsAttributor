@@ -114,8 +114,6 @@
 		EA2EA93D183DBDCC000CAD25 /* v4FontsAndAtrributedStrings */ = {
 			isa = PBXGroup;
 			children = (
-				EA2EA946183DBDCC000CAD25 /* KwNAppDelegate.h */,
-				EA2EA947183DBDCC000CAD25 /* KwNAppDelegate.m */,
 				EA2EA949183DBDCC000CAD25 /* Main_iPhone.storyboard */,
 				EA2EA94C183DBDCC000CAD25 /* Main_iPad.storyboard */,
 				EA2EA94F183DBDCC000CAD25 /* KwNViewController.h */,
@@ -129,6 +127,8 @@
 		EA2EA93E183DBDCC000CAD25 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA2EA946183DBDCC000CAD25 /* KwNAppDelegate.h */,
+				EA2EA947183DBDCC000CAD25 /* KwNAppDelegate.m */,
 				EA2EA93F183DBDCC000CAD25 /* v4FontsAndAtrributedStrings-Info.plist */,
 				EA2EA940183DBDCC000CAD25 /* InfoPlist.strings */,
 				EA2EA943183DBDCC000CAD25 /* main.m */,
@@ -475,6 +475,7 @@
 				EA2EA96B183DBDCC000CAD25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EA2EA96C183DBDCC000CAD25 /* Build configuration list for PBXNativeTarget "v4FontsAndAtrributedStringsTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +484,7 @@
 				EA2EA96E183DBDCC000CAD25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
