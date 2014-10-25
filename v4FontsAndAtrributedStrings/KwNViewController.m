@@ -52,6 +52,11 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    //if font size changed while the view was off, can be notified because
+    //there wasnt a change.
+    //so set according to
+    [self usePreferredFonts];
+    //listen for changes
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIContentSizeCategoryDidChangeNotification
                                                   object:nil];
@@ -60,6 +65,7 @@
 - (void)preferredFontsChanged:(NSNotification *)notification
 {
     [self usePreferredFonts];
+    NSLog(@"%@",notification.description);
 }
 
 
@@ -71,6 +77,13 @@
 
 
 - (IBAction)changeBodySelectionColorToMatchBackgroundOfButton:(UIButton *)sender {
+    
+//    [self.body.textStorage addAttribute:NSForegroundColorAttributeName
+//                                  value:sender.backgroundColor
+//                                  range:self.body.selectedRange];
+    NSLog(@"NSStringFromClass([sender class]): %@",NSStringFromClass([sender class]));
+
+    //global attributes?
     NSDictionary * attributesToSet = @{NSForegroundColorAttributeName : sender.backgroundColor};
     
     //I'm taking all the attributes of the all textStorage
@@ -80,54 +93,57 @@
     NSMutableDictionary *newAttributes = [[NSMutableDictionary alloc] initWithDictionary:currentAttributes];
     
     [newAttributes addEntriesFromDictionary:attributesToSet];
-
+    
     
     NSString * aStrig = [[self.body.textStorage attributedSubstringFromRange:self.body.selectedRange] string];
     
     [self.body.textStorage addAttributes:[newAttributes copy]
-                                  range:self.body.selectedRange];
+                                   range:self.body.selectedRange];
     
     [self changeTextAttributesOfLabelToMatchSelectedBodyString:aStrig
                                                 withAttributes:[newAttributes copy]];
     
     currentAttributes = [self.body.textStorage attributesAtIndex:0 effectiveRange:NULL];
-    
-//    [self.body.textStorage addAttribute:NSForegroundColorAttributeName
-//                                  value:sender.backgroundColor
-//                                  range:self.body.selectedRange];
 
 }
 - (IBAction)outlineBodyTextSelection {
-    NSDictionary * attributesToSet = @{NSStrokeWidthAttributeName : @-3,
-                                       NSStrokeColorAttributeName :[UIColor blackColor]};
+        [self.body.textStorage addAttributes:@{NSStrokeWidthAttributeName : @-2,
+                                               NSStrokeColorAttributeName :[UIColor blackColor]}
+                                       range:self.body.selectedRange];
 
-    NSDictionary * currentAttributes = [self.body.textStorage attributesAtIndex:1
-                                                          longestEffectiveRange:nil
-                                                                        inRange:self.body.selectedRange];
+    //    NSDictionary * attributesToSet = @{NSStrokeWidthAttributeName : @-3,
+//                                       NSStrokeColorAttributeName :[UIColor blackColor]};
+//
+//    NSDictionary * currentAttributes = [self.body.textStorage attributesAtIndex:1
+//                                                          longestEffectiveRange:nil
+//                                                                        inRange:self.body.selectedRange];
+//    
+//    NSMutableDictionary *newAttributes = [[NSMutableDictionary alloc] initWithDictionary:currentAttributes];
+//    
+//    [newAttributes addEntriesFromDictionary:attributesToSet];
+//    
+//    
+//    NSString * aStrig = [[self.body.textStorage attributedSubstringFromRange:self.body.selectedRange] string];
+//    
+//    [self.body.textStorage addAttributes:newAttributes
+//                                   range:self.body.selectedRange];
+//    
+//    
+//    
+//    [self changeTextAttributesOfLabelToMatchSelectedBodyString:aStrig
+//                                                withAttributes:newAttributes];
     
-    NSMutableDictionary *newAttributes = [[NSMutableDictionary alloc] initWithDictionary:currentAttributes];
-    
-    [newAttributes addEntriesFromDictionary:attributesToSet];
-    
-    
-    NSString * aStrig = [[self.body.textStorage attributedSubstringFromRange:self.body.selectedRange] string];
-    
-    [self.body.textStorage addAttributes:newAttributes
-                                   range:self.body.selectedRange];
-    
-    
-    
-    [self changeTextAttributesOfLabelToMatchSelectedBodyString:aStrig
-                                                withAttributes:newAttributes];
-    
-//    currentAttributes = [self.body.textStorage attributesAtIndex:1
-//                                           longestEffectiveRange:nil
-//                                                         inRange:self.body.selectedRange];
-    
+//    currentAttributes =
+//    [self.body.textStorage attributesAtIndex:1
+//                       longestEffectiveRange:nil
+//                                     inRange:self.body.selectedRange];
+
+
 }
 
 - (IBAction)unoutlineBodyTextSelection {
-    [self.body.textStorage removeAttribute:NSStrokeWidthAttributeName range:self.body.selectedRange];
+    [self.body.textStorage removeAttribute:NSStrokeWidthAttributeName
+                                     range:self.body.selectedRange];
 
 }
 
