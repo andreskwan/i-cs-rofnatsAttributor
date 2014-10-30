@@ -7,7 +7,7 @@
 //
 
 #import "KwNViewController.h"
-
+#import "TextStatsViewController.h"
 
 @interface KwNViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *body;
@@ -20,6 +20,15 @@
 
 @implementation KwNViewController
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"AnalizeText"]) {
+        if ([segue.destinationViewController isKindOfClass:[TextStatsViewController class]]) {
+            TextStatsViewController * tsVC = (TextStatsViewController *)segue.destinationViewController;
+            tsVC.textToAnalyze = self.body.textStorage;
+        }
+    }
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

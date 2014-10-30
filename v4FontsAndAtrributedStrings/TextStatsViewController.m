@@ -16,29 +16,17 @@
 
 @implementation TextStatsViewController
 
-//I instantiate
-//the model
-//so viewWillAppear
-//could work with something
--(void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.textToAnalyze = [[NSAttributedString alloc] initWithString:@"Kwancho"
-                                                         attributes:@{ NSForegroundColorAttributeName:[UIColor greenColor],
-                                                                    NSStrokeWidthAttributeName:@-3}];
-}
-
 -(void)setTextToAnalyze:(NSAttributedString *)textToAnalyze
 {
     _textToAnalyze = textToAnalyze;
     if (self.view.window) {
         [self updateUI];
     }
-    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    NSLog(@"%@",@"viewWillAppear");
     [self updateUI];
 }
 
