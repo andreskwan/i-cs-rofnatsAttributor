@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA0972A519FF579600BE09E6 /* TextStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0972A419FF579600BE09E6 /* TextStatsViewController.m */; };
 		EA2EA938183DBDCC000CAD25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA2EA937183DBDCC000CAD25 /* Foundation.framework */; };
 		EA2EA93A183DBDCC000CAD25 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA2EA939183DBDCC000CAD25 /* CoreGraphics.framework */; };
 		EA2EA93C183DBDCC000CAD25 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA2EA93B183DBDCC000CAD25 /* UIKit.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA0972A319FF579600BE09E6 /* TextStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextStatsViewController.h; sourceTree = "<group>"; };
+		EA0972A419FF579600BE09E6 /* TextStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextStatsViewController.m; sourceTree = "<group>"; };
 		EA2EA934183DBDCC000CAD25 /* v4FontsAndAtrributedStrings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v4FontsAndAtrributedStrings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA2EA937183DBDCC000CAD25 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EA2EA939183DBDCC000CAD25 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				EA2EA949183DBDCC000CAD25 /* Main_iPhone.storyboard */,
+				EA0972A319FF579600BE09E6 /* TextStatsViewController.h */,
+				EA0972A419FF579600BE09E6 /* TextStatsViewController.m */,
 				EA2EA94C183DBDCC000CAD25 /* Main_iPad.storyboard */,
 				EA2EA94F183DBDCC000CAD25 /* KwNViewController.h */,
 				EA2EA950183DBDCC000CAD25 /* KwNViewController.m */,
@@ -257,6 +262,7 @@
 				EA2EA944183DBDCC000CAD25 /* main.m in Sources */,
 				EA2EA948183DBDCC000CAD25 /* KwNAppDelegate.m in Sources */,
 				EA2EA951183DBDCC000CAD25 /* KwNViewController.m in Sources */,
+				EA0972A519FF579600BE09E6 /* TextStatsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
